@@ -1,6 +1,20 @@
 <?php 
+//message variables
+$msg='';
+$msgClass='';
+
 if(filter_has_var(INPUT_POST,'submit')){
-    echo 'submitted';
+    //Get form data
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $message=$_POST['message'];
+
+    //Check required fields
+    if(!empty($name) && !empty($email) && !empty($message)){
+        //passed
+    }else{
+        //failed
+    }
 }
 ?>
 <!DOCTYPE html>
