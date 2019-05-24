@@ -14,6 +14,8 @@ if(filter_has_var(INPUT_POST,'submit')){
         //passed
     }else{
         //failed
+        $msg ='Please fill in all fields';
+        $message='alert-danger';
     }
 }
 ?>
@@ -36,6 +38,11 @@ if(filter_has_var(INPUT_POST,'submit')){
   </div>
   </nav> 
   <div class="container">
+  <?php if($msg=''): ?>
+  <div class="alert <?php echo $msgClass; ?>">
+  <?php echo $msg; ?>
+  </div>
+  <?php endif ;?>
   <form action="" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
   <div class="form-group">
   <label for="">Name</label>
