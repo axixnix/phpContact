@@ -1,5 +1,24 @@
 <?php 
+//message vars
+$msg = '';
+$msgClass = '';
+//check for submit
+if(filter_has_var(INPUT_POST,'submit')){
+    //get the form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
+    //check required fields
+    if(!empty($name) && !empty($email) && !empty($message)){
+                 //passed
+                 echo 'passed';
+    }else{
+              //failed
+              $msg = 'Please fill in all fields';
+              $msgClass = 'alert-danger';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +42,10 @@
   </div>
   </nav> 
   <div class="container">
-  <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" >
+  <?php if($msg !=''): ?>
+  <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?> </div>
+<?php endif; ?>
+  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
   <div class="form-group">
   <label for="">Name</label>
   <input type="text" name="name" class="form-control" value="">
