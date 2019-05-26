@@ -24,7 +24,7 @@ if(filter_has_var(INPUT_POST,'submit')){
     }else{
         //failed
         $msg ='Please fill in all fields';
-        $message='alert-danger';
+        $msgClass='alert-danger';
     }
 }
 ?>
@@ -35,14 +35,15 @@ if(filter_has_var(INPUT_POST,'submit')){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"  href="https://bootswatch.com/cosmo/bootstrap.min.css">
+   <!--<link rel="stylesheet" type="text/css" href="./bootstrap.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css">
     <script src="main.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">
   <div class="container">
   <div class="navbar-header">
-  <a href="index.php" class="navbar-brand">My Website</a>
+  <a class="navbar-brand" href="index.php" >My Website</a>
   </div>
   </div>
   </nav> 
@@ -52,7 +53,7 @@ if(filter_has_var(INPUT_POST,'submit')){
   <?php echo $msg; ?>
   </div>
   <?php endif ;?>
-  <form action="" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+  <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" >
   <div class="form-group">
   <label for="">Name</label>
   <input type="text" name="name" class="form-control" value="">
