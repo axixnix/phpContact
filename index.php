@@ -1,32 +1,5 @@
 <?php 
-//message variables
-$msg='';
-$msgClass='';
 
-if(filter_has_var(INPUT_POST,'submit')){
-    //Get form data
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $message=$_POST['message'];
-
-    //Check required fields
-    if(!empty($name) && !empty($email) && !empty($message)){
-        //passed
-        //check email
-        if(filter_var($email,FILTER_VALIDATE_EMAIL)===false){
-            //failed
-            $msg ='Please use a valid email';
-        $message='alert-danger';
-        }else{
-            //passed
-            echo 'passed';
-        }
-    }else{
-        //failed
-        $msg ='Please fill in all fields';
-        $msgClass='alert-danger';
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +8,9 @@ if(filter_has_var(INPUT_POST,'submit')){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--<link rel="stylesheet" type="text/css" href="./bootstrap.css">-->
+   <!--
+       <link rel="stylesheet" type="text/css" href="./bootstrap.css"> href="https://bootswatch.com/cosmo/bootstrap.min.css"
+   -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css">
     <script src="main.js"></script>
 </head>
@@ -48,11 +23,6 @@ if(filter_has_var(INPUT_POST,'submit')){
   </div>
   </nav> 
   <div class="container">
-  <?php if($msg=''): ?>
-  <div class="alert <?php echo $msgClass; ?>">
-  <?php echo $msg; ?>
-  </div>
-  <?php endif ;?>
   <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" >
   <div class="form-group">
   <label for="">Name</label>
