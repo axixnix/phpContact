@@ -12,7 +12,15 @@ if(filter_has_var(INPUT_POST,'submit')){
     //check required fields
     if(!empty($name) && !empty($email) && !empty($message)){
                  //passed
-                 echo 'passed';
+                 //check email
+                 if(filter_var($email,FILTER_VALIDATE_EMAIL)===false){
+                     //failed
+                     $msg = 'Please fill in a valid email address';
+              $msgClass = 'alert-danger';
+                 }else{
+                     //passed
+                     echo 'passed';
+                 }
     }else{
               //failed
               $msg = 'Please fill in all fields';
