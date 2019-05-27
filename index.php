@@ -5,9 +5,9 @@ $msgClass = '';
 //check for submit
 if(filter_has_var(INPUT_POST,'submit')){
     //get the form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
 
     //check required fields
     if(!empty($name) && !empty($email) && !empty($message)){
@@ -56,17 +56,17 @@ if(filter_has_var(INPUT_POST,'submit')){
   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
   <div class="form-group">
   <label for="">Name</label>
-  <input type="text" name="name" class="form-control" value="">
+  <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name'])? $name : ''; ?>">
   </div>
 
   <div class="form-group">
   <label for="">Email</label>
-  <input type="text" name="email" class="form-control" value="">
+  <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email'])? $email : ''; ?>">
   </div>
 
   <div class="form-group">
   <label for="">Message</label>
-  <textarea name="message" class="form-control"></textarea>
+  <textarea name="message" class="form-control"><?php echo isset($_POST['message'])? $message : ''; ?></textarea>
   </div>
   <br>
 
