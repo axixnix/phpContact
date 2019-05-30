@@ -73,7 +73,7 @@ if(filter_has_var(INPUT_POST,'submit')){
   </div>
   </nav> 
   <div class="container">
-  <?php if($msg !=''): ?>
+  <?php if($msg !=''): //this shorthand php if statement is to be run if there is an error message?>
   <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?> </div>
 <?php endif; ?>
   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" >
